@@ -5,4 +5,5 @@
   roles:
     - { tags: g, role: general }
     - { tags: u, role: isucon-user }
+    - { tags: r, role: install-redis }
     # - { tags: c, role: config}
