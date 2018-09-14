@@ -1,0 +1,49 @@
+# アプリサーバーに共通で入れる細々としたもの
+---
+# - name: set timezone to Asia/Tokyo
+#   timezone:
+#     name: Asia/Tokyo
+
+# - name: locale-gen
+#   locale_gen:
+#     name: ja_JP.UTF-8
+#     state: present
+
+- name: install general packages from apt
+  apt:
+    state: present
+    name: "{{ item }}"
+    update_cache: yes
+  with_items:
+    - git
+    - zsh
+    - gcc
+    - make
+    - unzip
+    - python3-pip
+    - ncurses-term
+    - mysql-client
+    - redis-tools
+
+- name: Update security
+  apt: name={{ item }} state=latest force=yes
+  with_items:
+    - openssl
+    - libssl1.0.0
+    - libssl-dev
+    - libssl-doc
+
+- name: install command from pip
+  pip:
+    executable: /usr/bin/pip3
+    state: latest
+    name: "{{ item }}"
+  with_items:
+    - awscli
+    - ansible
+    - cryptography
+    - boto
+    - boto3
+    - botocore
+
+- import_tasks: tool.yml

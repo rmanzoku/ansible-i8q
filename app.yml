@@ -1,0 +1,8 @@
+- hosts: app
+  become: yes
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  roles:
+    - { tags: g, role: general }
+    # - { tags: u, role: create-users }
+    # - { tags: c, role: config}

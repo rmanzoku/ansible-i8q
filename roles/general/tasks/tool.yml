@@ -1,0 +1,66 @@
+---
+- name: lltsv
+  get_url:
+    url: "https://github.com/sonots/lltsv/releases/download/v0.6.1/lltsv_linux_amd64"
+    dest: /usr/local/bin/lltsv
+    mode: 0755
+
+- name: jq
+  get_url:
+    url: "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64"
+    dest: /usr/local/bin/jq
+    mode: 0755
+
+- name: peco
+  stat: path=/usr/local/bin/peco
+  register: peco_installed
+
+- block:
+    - get_url: url=https://github.com/peco/peco/releases/download/v0.5.3/peco_linux_amd64.tar.gz
+               dest=/tmp/peco_linux_amd64.tar.gz mode=0440
+
+    - unarchive: src=/tmp/peco_linux_amd64.tar.gz dest=/tmp/ remote_src=yes
+
+    - copy: src=/tmp/peco_linux_amd64/peco dest=/usr/local/bin/peco remote_src=yes
+  when: not peco_installed.stat.exists
+
+- file:
+    state: file
+    path: /usr/local/bin/peco
+    mode: 0755
+
+- name: schemalex
+  stat: path=/usr/local/bin/schemalex
+  register: schemalex_installed
+
+- block:
+    - get_url: url=https://github.com/schemalex/schemalex/releases/download/v0.0.8/schemalex_linux_amd64.tar.gz
+               dest=/tmp/schemalex_linux_amd64.tar.gz mode=0440
+
+    - unarchive: src=/tmp/schemalex_linux_amd64.tar.gz dest=/tmp/ remote_src=yes
+
+    - copy: src=/tmp/schemalex_linux_amd64/schemalex dest=/usr/local/bin/schemalex remote_src=yes
+  when: not schemalex_installed.stat.exists
+
+- file:
+    state: file
+    path: /usr/local/bin/schemalex
+    mode: 0755
+
+- name: alp
+  stat: path=/usr/local/bin/alp
+  register: alp_installed
+
+- block:
+    - get_url: url=https://github.com/tkuchiki/alp/releases/download/v0.3.1/alp_linux_amd64.zip
+               dest=/tmp/alp_linux_amd64.zip mode=0440
+
+    - unarchive: src=/tmp/alp_linux_amd64.zip dest=/tmp/ remote_src=yes
+
+    - copy: src=/tmp/alp dest=/usr/local/bin/alp remote_src=yes
+  when: not alp_installed.stat.exists
+
+- file:
+    state: file
+    path: /usr/local/bin/alp
+    mode: 0755

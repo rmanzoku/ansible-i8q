@@ -1,1 +1,5 @@
 inventory
+.ansible.log
+.direnv/
+.envrc
+.python-version
