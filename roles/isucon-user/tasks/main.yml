@@ -1,0 +1,14 @@
+---
+# - name: create isucon
+#   user:
+#     state: present
+#     name: isucon
+#     shell: /bin/bash
+#     create_home: yes
+
+- name: set authorized key took from github
+  authorized_key:
+    user: isucon
+    state: present
+    key: "{{lookup('file', 'isucon.id_rsa.pub')}}"
+

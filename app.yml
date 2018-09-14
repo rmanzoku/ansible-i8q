@@ -4,5 +4,5 @@
     ansible_python_interpreter: /usr/bin/python3
   roles:
     - { tags: g, role: general }
-    # - { tags: u, role: create-users }
+    - { tags: u, role: isucon-user }
     # - { tags: c, role: config}
