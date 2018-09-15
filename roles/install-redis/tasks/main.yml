@@ -1,9 +1,6 @@
 ---
-- name: Add apt_repo
-  apt_repository:
-    repo: "ppa:chris-lea/redis-server"
-
-- name: apt get
-  apt:
-    update_cache: yes
-    name: redis-server
+- yum:
+    name: "{{ item }}"
+  with_items:
+    - epel-release
+    - redis
