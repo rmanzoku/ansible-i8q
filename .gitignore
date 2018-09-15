@@ -3,3 +3,7 @@ inventory
 .direnv/
 .envrc
 .python-version
+
+aaa.tsv
+access.log
+index.php
