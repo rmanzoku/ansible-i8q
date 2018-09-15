@@ -2,6 +2,10 @@
     src: env.sh
     dest: /home/isucon/torb/webapp/env.sh
 
+- copy:
+    src: hosts
+    dest: /etc/hosts
+
 - systemd: service=torb.perl.service state=stopped enabled=no
 - systemd: service=torb.go.service enabled=yes state=restarted
   
