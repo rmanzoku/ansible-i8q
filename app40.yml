@@ -1,0 +1,9 @@
+- hosts: app40
+  become: yes
+  # vars:
+  #   ansible_python_interpreter: /usr/bin/python3
+  roles:
+    # - { tags: g, role: general }
+    # - { tags: u, role: isucon-user }
+    # - { tags: r, role: install-redis }
+    - { tags: h, role: h2o}

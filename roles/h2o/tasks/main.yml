@@ -1,0 +1,5 @@
+- copy:
+    src: h2o.conf
+    dest: /etc/h2o/h2o.conf
+
+- systemd: service=h2o state=restarted
