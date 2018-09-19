@@ -8,4 +8,5 @@
 
 - systemd: service=torb.perl.service state=stopped enabled=no
 - systemd: service=torb.go.service enabled=yes state=restarted
+- systemd: service=h2o.service enabled=yes state=restarted
   

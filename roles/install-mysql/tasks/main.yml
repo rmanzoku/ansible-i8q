@@ -1,0 +1,7 @@
+- yum:
+    state: present
+    name: https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+
+- yum:
+    state: present
+    name: mysql-community-server

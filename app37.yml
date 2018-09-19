@@ -1,8 +1,9 @@
-- hosts: all
+- hosts: app37
   become: yes
   # vars:
   #   ansible_python_interpreter: /usr/bin/python3
   roles:
-    - { tags: e, role: env }
+    # - { tags: g, role: general }
+    # - { tags: u, role: isucon-user }
     # - { tags: r, role: install-redis }
-    - { tags: r, role: redis-config }
+    - { tags: h, role: h2o}

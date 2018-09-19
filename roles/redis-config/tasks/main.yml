@@ -1,0 +1,6 @@
+- copy:
+    src: redis.conf
+    dest: /etc/redis.conf
+
+- systemd: service=redis.service enabled=yes state=restarted
+

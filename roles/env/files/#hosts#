@@ -3,6 +3,7 @@
 
 
 172.16.205.1 db.localhost
+
 172.16.205.1 redis.localhost
 #172.16.205.1 app.localhost
 172.16.205.2 app.localhost
